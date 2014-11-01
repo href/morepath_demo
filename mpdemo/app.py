@@ -1,5 +1,5 @@
 import morepath
-import waitress
+from werkzeug.serving import run_simple
 
 
 # the morepath application class contains configuration and its
@@ -56,11 +56,13 @@ def get_test(self, request):
     pass
 
 def main():
+
     # set up morepath's own configuration
     config = morepath.setup()
+
     # load application specific configuration
     config.scan()
     config.commit()
 
     # serve app as WSGI app
-    waitress.serve(app())
+    run_simple('localhost', 8080, app(), use_reloader=True)

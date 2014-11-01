@@ -13,7 +13,7 @@ setup(name='mpdemo',
       install_requires=[
         'setuptools',
         'morepath',
-        'waitress',
+        'werkzeug',
         ],
       # extras_require = dict(
       #   test=['pytest >= 2.0',
